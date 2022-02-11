@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "cloneInstagram",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

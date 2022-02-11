@@ -1,0 +1,7 @@
+{
+  "name": "cloneInstagram",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
