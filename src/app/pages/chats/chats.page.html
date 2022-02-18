@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="feeds"></ion-back-button>
+    </ion-buttons>
+    <ion-title>chats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div >
+    <ion-row *ngIf="chats">
+      <ion-col size="12" *ngFor="let chat of chats" >
+        <ion-row (click)="joinChat(chat.id)"   >
+          <ion-col  size="3">
+            <div>
+              <img style="width: 60px;height: 60px; border-radius: 50%;" [src]="chat.imageUrl" alt="No Image">
+            </div>
+          </ion-col>
+          <ion-col  size="9" >
+            <div style="font-weight: bold; font-size: large;" >{{chat.title}}</div>
+            <div *ngFor="let message of chat.messages">{{message.message}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar style="text-align: center; border-radius: 300px;" >
+    <ion-buttons >
+      <ion-button  style="margin: auto;" (click)="presentModal()" >crea chat</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

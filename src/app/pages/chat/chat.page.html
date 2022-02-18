@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="chats"></ion-back-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-col size="12" size-sm *ngIf="chat">
+        <ion-row>
+          <ion-col size="4" style="text-align: center; margin-top: auto">
+            <div>
+              <img
+                style="width: 30px; height: 30px; border-radius: 50%"
+                [src]="chat.imageUrl"
+              />
+            </div>
+          </ion-col>
+          <ion-col size="6" size-sm style="margin-top: 8px">
+            <div style="font-weight: bold; font-size: large">
+              {{chat.title}}
+            </div>
+            <div *ngIf="date">{{chat.date}}</div>
+          </ion-col>
+          <ion-col size="2">
+            <div>
+              <ion-icon style="margin-top: 10px" name="person-add"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  *ngIf="chat">
+  <ion-card style="width: 250px; float: right; border-radius: 20px;" *ngFor="let mes of chat.messages">
+    <ion-card-content>
+      <ion-card-title>{{mes.creator.nickname}}</ion-card-title>
+      {{ mes.message}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-padding" >
+  <form [formGroup]="postForm" (submit)="send()" novalidate>
+        <ion-item style="border-radius: 20px;" >
+            <ion-textarea  auto-grow="true"  maxlength="450"  formControlName="message" placeholder="scrivi messaggio..."></ion-textarea>
+
+          <ion-buttons slot="end" style="margin: auto;">
+            <ion-button style=" width: 40px; color: white; height: 40px; border-radius: 50%; background-color: #095;" type="submit">
+              <ion-icon name="send"></ion-icon
+            ></ion-button>
+          </ion-buttons>
+        </ion-item>
+  </form>
+</ion-footer>

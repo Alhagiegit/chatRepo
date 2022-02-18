@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>feeds</ion-title>
+     <ion-buttons slot="end"  (click)="goToChats()">chats <ion-icon  color="success"  name="logo-whatsapp"></ion-icon></ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <div class="ion-padding" *ngIf="feeds">
+  <ion-card *ngFor="let feed of feeds; let i=index">
+    <img style="width:100%" [src]="feed.imageUrl">
+    <ion-card-header>
+      <ion-card-subtitle>{{feed.creator.nickname}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{feed.message}}</p>
+      <div style="width:100%;">
+        <span click><span (click)="getLike(feed.id)">Like</span>: {{res }}</span>
+        <span style="float: right;">Comments: {{res}}</span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+ </div>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>postfeed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form [formGroup]="postForm" (submit)='publishFeeds()' novalidate>
+      <ion-item>
+        <ion-label position='stacked'>message</ion-label>
+        <ion-input type='text' formControlName='message' placeholder="message"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position='stacked'> imageUrl</ion-label>
+        <ion-input type='text' formControlName='imageUrl' placeholder="imageUrl"></ion-input>
+      </ion-item>
+      <ion-button expand='block' type='submit'>post</ion-button>
+    </form>
+  </div>
+</ion-content>
